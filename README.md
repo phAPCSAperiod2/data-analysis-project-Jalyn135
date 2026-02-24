@@ -70,8 +70,8 @@ UML_Diagram.png (or UML_Diagram.pdf)
 **Source / Link:**  
 
 **What this dataset contains (2–3 sentences):**  
-____________________________________________________________________  
-____________________________________________________________________  
+  
+This dataset contains various world development indicators for different countries in the year 2000. It includes attributes such as CO2 emissions, population, GDP, and other global metrics. Our project focuses specifically on CO2 emissions by country.  https://runestone.academy/ns/books/published/csawesome2/external/_static/datasets/WorldIndicators2000.csv.   
 
 ---
 
@@ -79,9 +79,8 @@ ____________________________________________________________________
 
 Your guiding question should be something you can answer using your dataset.
 
-**My guiding question:**  
-____________________________________________________________________  
-____________________________________________________________________  
+**My guiding question: Which countries have the most carbon emissions?**  
+
 
 Examples:
 

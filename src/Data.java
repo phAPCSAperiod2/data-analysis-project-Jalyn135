@@ -1,30 +1,42 @@
 /**
- * Represents one row from your dataset.
- *
- * TODO:
- *  - Rename the class to match your dataset (e.g., Pokemon, StateData, CountryStat)
- *  - Add at least 3 private attributes based on your CSV columns
- *  - Write a constructor that initializes all attributes
- *  - Add getter methods for the attributes you need in your analysis
- *  - Override toString() to display the object's data
- *  - Add Javadoc comments for the class and all methods
+ * Represents one row from the World Indicators dataset.
+ * Stores a country's name, its CO2 emissions, and the year.
  */
 public class Data {
 
-    // TODO: Add at least 3 private attributes
-    // Example:
-    // private String name;
-    // private int population;
-    // private double value;
+    private String country;
+    private double emissions;
+    private int year;
 
+    /**
+     * Constructs a Data object.
+     * @param country the country's name
+     * @param emissions the CO2 emissions value
+     * @param year the year of the data
+     */
+    public Data(String country, double emissions, int year) {
+        this.country = country;
+        this.emissions = emissions;
+        this.year = year;
+    }
 
-    // TODO: Create a constructor that takes all attributes as parameters
+    /** @return the country name */
+    public String getCountry() {
+        return country;
+    }
 
+    /** @return the CO2 emissions */
+    public double getEmissions() {
+        return emissions;
+    }
 
-    // TODO: Add getters for attributes you need
+    /** @return the year */
+    public int getYear() {
+        return year;
+    }
 
-    // TODO: Add other data analysis methods
-
-    // TODO: Override toString() to return a readable representation of your object
-
+    @Override
+    public String toString() {
+        return country + " | Emissions: " + emissions + " | Year: " + year;
+    }
 }
