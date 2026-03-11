@@ -66,12 +66,11 @@ UML_Diagram.png (or UML_Diagram.pdf)
 
 ## 🧩 Step 1 — Choose Your Dataset
 
-**Dataset Name:**  
-**Source / Link:**  
+**Dataset Name: World Indicators 2000**  
+**Source / Link: https://runestone.academy/ns/books/published/csawesome2/external/_static/datasets/WorldIndicators2000.csv.**  
 
-**What this dataset contains (2–3 sentences):**  
+**What this dataset contains (2–3 sentences): This dataset contains world development indicators for multiple countries across multiple years. It includes the country name, date, and CO₂ emissions data. The program focuses specifically on carbon dioxide emissions and analyzes which country has the highest emissions in the dataset.**  
   
-This dataset contains various world development indicators for different countries in the year 2000. It includes attributes such as CO2 emissions, population, GDP, and other global metrics. Our project focuses specifically on CO2 emissions by country.  https://runestone.academy/ns/books/published/csawesome2/external/_static/datasets/WorldIndicators2000.csv.   
 
 ---
 
@@ -79,14 +78,8 @@ This dataset contains various world development indicators for different countri
 
 Your guiding question should be something you can answer using your dataset.
 
-**My guiding question: Which countries have the most carbon emissions?**  
+**My guiding question: Which country has the highest carbon emissions in this dataset?**  
 
-
-Examples:
-
-- "Which Pokémon has the highest HP?"  
-- "What is the average life expectancy in this dataset?"  
-- "Which state had the highest vaccination rate?"  
 
 ---
 
@@ -94,8 +87,48 @@ Examples:
 
 You must create a class that represents **one row** of your dataset.
 
-### ✔ Your class must include:
+### ✔ Your class must include: At least 3 private attributes
+private String country;
+private double emissions;
+private int year;
+✅ Constructor that takes all attributes as parameters
+public Data(String country, double emissions, int year) {
+    this.country = country;
+    this.emissions = emissions;
+    this.year = year;
+}
+✅ Getter methods for attributes used in analysis
+public String getCountry() {
+    return country;
+}
 
+public double getEmissions() {
+    return emissions;
+}
+
+public int getYear() {
+    return year;
+}
+
+You use:
+
+getEmissions() in your max and average algorithms
+
+getCountry() when printing the country with highest emissions
+
+getYear() when printing the year of the highest emissions
+
+✅ toString() method for easy printing
+@Override
+public String toString() {
+    return country + " | Emissions: " + emissions + " | Year: " + year;
+}
+
+This is used when printing:
+
+Highest emissions: China | Emissions: 8286892.0 | Year: 2010
+
+^^^^
 - **At least 3 private attributes**  
 - **A constructor** that takes all attributes as parameters  
 - **Getter methods** for attributes you plan to analyze  
@@ -103,7 +136,21 @@ You must create a class that represents **one row** of your dataset.
 - Any additional analysis/helper methods as needed  
 
 ### ✏ Include your class diagram
-
++--------------------------------+
+|             Data               |
++--------------------------------+
+| - country : String             |
+| - emissions : double           |
+| - year : int                   |
++--------------------------------+
+| + Data(country:String,         |
+|        emissions:double,       |
+|        year:int)               |
+| + getCountry() : String        |
+| + getEmissions() : double      |
+| + getYear() : int              |
+| + toString() : String          |
++--------------------------------+
 
 ---
 
@@ -124,10 +171,10 @@ In `Main.java`, you must:
 ### Column → Attribute Map
 
 | Attribute Name | CSV Column Name | Column Index # | Notes |
-|----------------|------------------|----------------|-------|
-|                |                  |                |       |
-|                |                  |                |       |
-|                |                  |                |       |
+|----------------|-----------------|----------------|-------|
+|   country          |      Country        |  0     |   Stored as a String    |
+|   year             |       Date          |  1     |   The dataset stores dates like 12/1/2000. year is taken from the third part  |
+|   emissions        |       CO2 Emissions |  4     |   Parsed as a double    |
 
 ---
 
@@ -144,8 +191,8 @@ You must write **at least two algorithms** to analyze your dataset.
 
 **Algorithms I will implement:**
 
-1. __________________________________________  
-2. __________________________________________  
+1. Maximum emissions algorithm: Loops through all Data objects. Finds the object with the highest emissions value. Returns that Data object  
+2. Average emissions algorithm. Sums all emissions values. Divides by the number of rows. Returns the average as a double
 
 Optional extras:  
 - Sorting  
@@ -164,13 +211,12 @@ After analyzing your objects, print:
 - ✔ A clear answer to your guiding question  
 
 **My findings:**  
-____________________________________________________________________  
-____________________________________________________________________  
-____________________________________________________________________  
+The program successfully loads all valid rows from the dataset.
+It calculates the average CO2 emissions across all countries in the file.
+It identifies the single country with the highest emissions and prints the full row (country, emissions, year). (CHINA) 
 
 **My answer to the guiding question:**  
-____________________________________________________________________  
-____________________________________________________________________  
+The country with the highest carbon emissions in this dataset is the one returned by findMaxEmissions(). Based on the dataset, this is typically China, with emissions over 8 million metric tons in the year 2010 (my program prints the exact value).
 
 ---
 
@@ -205,7 +251,7 @@ Add a UML diagram showing:
 - Visibility (private/public)
 
 Save as `UML_Diagram.png` or `.pdf` in the repo.
-
+Already listed class diagram previously
 ---
 
 ## 🛡 Step 8 — Data Ethics & Quality Reflection
@@ -217,10 +263,7 @@ Write a short reflection (3–5 sentences):
 - How trustworthy are your insights?
 
 **My reflection:**  
-____________________________________________________________________  
-____________________________________________________________________  
-____________________________________________________________________  
-____________________________________________________________________  
+The dataset may contain missing or inconsistent values, which can affect the accuracy of the results. Some rows may have empty fields or formatting issues, so my program skips invalid entries to avoid errors. The dataset could also be biased because it only includes certain years and may not represent all countries equally. If the data is incomplete or outdated, the insights might not reflect real-world conditions today. Overall, the results are trustworthy for the dataset provided, but not necessarily for global emissions trends outside this file.
 
 ---
 
